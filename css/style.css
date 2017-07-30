@@ -1,0 +1,38 @@
+/*
+  Custom Styling Sheet created by Steve Hanlon on 7/29/17 for Git Cheat Sheet accordian.
+*/
+
+/*-----------------------------
+            General
+-------------------------------*/
+body {
+    margin: 3%;
+    background-color: tan;
+}
+
+/*-----------------------------
+        Page heading
+-------------------------------*/
+
+#page-heading {
+    font-family: "Muli", sans-serif;
+    font-size: 4em;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 1px 1px #000;
+}
+
+
+/*-----------------------------
+       Accordian text
+-------------------------------*/
+.list-heading {
+    font-size: 1.5em;
+    color: #F1A520;
+}
+
+ol {
+    list-style: square;
+    margin-bottom: 20px;
+}
+
