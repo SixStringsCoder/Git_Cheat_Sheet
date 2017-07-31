@@ -45,7 +45,42 @@
       <div class="group">
         <h3>Show</h3>
         <div>
-          <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+            <p class="list-heading">Files changed in working directory</p>
+            <ol>
+                <li>git status</li>
+            </ol>
+            <p class="list-heading">Changes made to tracked files</p>
+            <ol>
+                <li>git diff</li>
+            </ol>
+            <p class="list-heading">What changed between saved version of a file (i.e. ID1 and ID2)</p>
+            <ol>
+                <li>git diff ID1 ID2</li>
+            </ol>
+            <p class="list-heading">History of changes</p>
+            <ol>
+                <li>git log</li>
+            </ol>
+            <p class="list-heading">History of changes for file with diffs</p>
+            <ol>
+                <li>git log -p FILE DIRECTORY</li>
+            </ol>
+            <p class="list-heading">Who changed WHAT and WHEN with a saved file</p>
+            <ol>
+                <li>git blame FILE</li>
+            </ol>
+            <p class="list-heading">A commit identified by ID</p>
+            <ol>
+                <li>git show ID</li>
+            </ol>
+            <p class="list-heading">A specific file from a specific ID</p>
+            <ol>
+                <li>git show ID FILE</li>
+            </ol>
+            <p class="list-heading">All local branches</p>
+            <ol>
+                <li>git branch</li>
+            </ol>
         </div>
       </div>
       <div class="group">
@@ -94,6 +129,7 @@
         $( function() {
         $( "#accordion" )
           .accordion({
+            heightStyle: "content",
             header: "> div > h3"
           })
           .sortable({
