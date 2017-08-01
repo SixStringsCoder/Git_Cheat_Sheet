@@ -11,6 +11,8 @@
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!--Reset and Normalize CSS-->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/normalize.css">
@@ -23,6 +25,13 @@
 
 <body>
     <h1 id="page-heading">Git Cheat Sheet</h1>
+    <section class="intro">
+      <div>
+          <p><strong>master</strong> is the default development branch</p>
+          <p><strong>origin</strong> is the default upstream repository</p>
+      </div>
+    </section>
+
     <div id="accordion">
       <div class="group">
         <h3>Create</h3>
@@ -32,13 +41,13 @@
                 <li>cd -/my_project_directory</li>
                 <li>git init</li>
                 <li>git add .</li>
-            </ol>
+
           <p class="list-heading">From existing repository:</p>
             <ol>
                 <li>git clone -/existing_repo -/new/repo</li>
                 <li>git clone git://host.org/myproject.git</li>
                 <li>git clone ssh://user@host.org/project.git</li>
-            </ol>
+
         </div>
       </div>
 
@@ -55,7 +64,7 @@
             </ol>
             <p class="list-heading">What changed between saved version of a file (i.e. ID1 and ID2)</p>
             <ol>
-                <li>git diff ID1 ID2</li>
+                <li>git diff &lt;ID1&gt; &lt;ID2&gt;</li>
             </ol>
             <p class="list-heading">History of changes</p>
             <ol>
@@ -63,19 +72,19 @@
             </ol>
             <p class="list-heading">History of changes for file with diffs</p>
             <ol>
-                <li>git log -p FILE DIRECTORY</li>
+                <li>git log -p &lt;FILE&gt; &lt;DIRECTORY&gt;</li>
             </ol>
             <p class="list-heading">Who changed WHAT and WHEN with a saved file</p>
             <ol>
-                <li>git blame FILE</li>
+                <li>git blame &lt;FILE&gt;</li>
             </ol>
             <p class="list-heading">A commit identified by ID</p>
             <ol>
-                <li>git show ID</li>
+                <li>git show &lt;ID&gt;</li>
             </ol>
             <p class="list-heading">A specific file from a specific ID</p>
             <ol>
-                <li>git show ID FILE</li>
+                <li>git show &lt;ID&gt;:&lt;FILE&gt;</li>
             </ol>
             <p class="list-heading">All local branches</p>
             <ol>
@@ -86,39 +95,140 @@
       <div class="group">
         <h3>Revert</h3>
         <div>
-          <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
-          <ul>
-            <li>List item one</li>
-            <li>List item two</li>
-            <li>List item three</li>
-          </ul>
+          <p class="list-heading">Return to the last commited state</p>
+          <ol>
+            <li>git reset --hard</li>
+          </ol>
+          <p class="list-heading">Revert to the last command</p>
+          <ol>
+            <li>git revert head</li>
+          </ol>
+          <p class="list-heading">Revert specific commit</p>
+          <ol>
+            <li>git revert &lt;ID&gt;</li>
+          </ol>
+          <p class="list-heading">Fix the last commit</p>
+          <ol>
+            <li>git commit -a amend</li>
+          </ol>
+          <p class="list-heading">Check out the ID version of a file</p>
+          <ol>
+            <li>git checkout &lt;ID&gt; &lt;FILE&gt;</li>
+          </ol>
         </div>
       </div>
       <div class="group">
         <h3>Update</h3>
         <div>
-          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+          <p class="list-heading">Fetch latest changes from origin</p>
+          <ol>
+            <li>git fetch (<em>this does not merge them</em>)</li>
+          </ol>
+          <p class="list-heading">Pull latest changes form origin</p>
+          <ol>
+            <li>git pull (<em>does a fecth followed by a merge</em>)</li>
+          </ol>
+          <p class="list-heading">Apply a patch that someone sent you</p>
+          <ol>
+            <li>git am -3 patch.mbox (<em>in case of conflict, resolve the conflict then the following...</em>)</li>
+            <li>git am --resolved</li>
+          </ol>
         </div>
       </div>
       <div class="group">
         <h3>Publish</h3>
         <div>
-          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+          <p class="list-heading">Commit all your local changes</p>
+          <ol>
+            <li>git commit -a</li>
+          </ol>
+          <p class="list-heading">Prepare a patch for other developers</p>
+          <ol>
+            <li>git format-patch origin</li>
+          </ol>
+          <p class="list-heading">Push changes to origin</p>
+          <ol>
+            <li>git push</li>
+          </ol>
+          <p class="list-heading">Make a version or milestone</p>
+          <ol>
+            <li>git tag v.1.0</li>
+          </ol>
         </div>
       </div>
       <div class="group">
         <h3>Branch</h3>
         <div>
-          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+          <p class="list-heading">Switch to a branch</p>
+          <ol>
+            <li>git checkout &lt;BRANCH&gt;</li>
+          </ol>
+          <p class="list-heading">Merge BRANCH1 into BRANCH2</p>
+          <ol>
+            <li>git checkout &lt;BRANCH2&gt;</li>
+            <li>git merge &lt;BRANCH1&gt;</li>
+          </ol>
+          <p class="list-heading">Create branch BRANCH based on head</p>
+          <ol>
+            <li>git branch &lt;BRANCH&gt;</li>
+          </ol>
+          <p class="list-heading">Create branch BRANCH based on OTHER and switch to it</p>
+          <ol>
+            <li>git checkout -b &lt;BRANCH&gt; &lt;OTHER&gt;</li>
+          </ol>
+          <p class="list-heading">Delete branch BRANCH</p>
+          <ol>
+            <li>git branch -d &lt;BRANCH&gt;</li>
+          </ol>
         </div>
       </div>
       <div class="group">
         <h3>Resolve Merge Conflicts</h3>
         <div>
-          <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+            <p class="list-heading">View merge conflicts</p>
+          <ol>
+            <li>git diff</li>
+          </ol>
+          <p class="list-heading">View merge conflicts against base file</p>
+          <ol>
+            <li>git diff -base &lt;FILE&gt;</li>
+          </ol>
+          <p class="list-heading">View merge conflicts against your changes</p>
+          <ol>
+            <li>git diff -ours &lt;FILE&gt;</li>
+          </ol>
+          <p class="list-heading">View merge conflicts against other changes</p>
+          <ol>
+            <li>git diff -theirs &lt;FILE&gt;</li>
+          </ol>
+          <p class="list-heading">Discard a conflicting patch</p>
+          <ol>
+            <li>git reset --hard</li>
+            <li>git rebase --skip</li>
+          </ol>
+          <p class="list-heading">After resolving conflicts, merge with</p>
+          <ol>
+            <li>git add &lt;CONFLICTING FILE&gt;</li>
+            <li>git rebase --continue</li>
+          </ol>
         </div>
       </div>
+
+      <div class="group">
+        <h3>BREAK IN CASE OF EMERGENCY!</h3>
+        <div>
+          <p class="list-heading">Global configuration is stored in -/.gitconfig </p>
+          <ol>
+            <li>git &lt;COMMAND&gt; --help</li>
+          </ol>
+          <p class="list-heading">Git Help</p>
+          <ol>
+            <li>git config --help</li>
+          </ol>
+          </div>
+        </div>
     </div>
+
 
     <!--jQuery-->
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -130,6 +240,8 @@
         $( "#accordion" )
           .accordion({
             heightStyle: "content",
+            active: false,
+            collapsible: true,
             header: "> div > h3"
           })
           .sortable({
